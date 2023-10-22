@@ -1,0 +1,392 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: GreetingService API
+    description: "true"
+    version: 0.0.1
+paths:
+    /error:
+        get:
+            tags:
+                - GreetingService
+            operationId: GreetingService_Error
+            responses:
+                "200":
+                    description: OK
+                    content: {}
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /example:
+        post:
+            tags:
+                - GreetingService
+            operationId: GreetingService_Example
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/ExampleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ExampleResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /hello/{name}:
+        get:
+            tags:
+                - GreetingService
+            operationId: GreetingService_GetHello
+            parameters:
+                - name: name
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+                - name: title
+                  in: query
+                  schema:
+                    type: string
+                - name: method
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/HelloResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        put:
+            tags:
+                - GreetingService
+            operationId: GreetingService_PutHello
+            parameters:
+                - name: name
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/HelloRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/HelloResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        post:
+            tags:
+                - GreetingService
+            operationId: GreetingService_PostHello
+            parameters:
+                - name: name
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/HelloRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/HelloResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - GreetingService
+            operationId: GreetingService_DeleteHello
+            parameters:
+                - name: name
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/HelloRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/HelloResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        patch:
+            tags:
+                - GreetingService
+            operationId: GreetingService_PatchHello
+            parameters:
+                - name: name
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/HelloRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/HelloResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+components:
+    schemas:
+        ExampleRequest:
+            type: object
+            properties:
+                double_value:
+                    type: number
+                    format: double
+                float_value:
+                    type: number
+                    format: float
+                int32_value:
+                    type: integer
+                    format: int32
+                int64_value:
+                    type: string
+                uint32_value:
+                    type: integer
+                    format: uint32
+                uint64_value:
+                    type: string
+                bool_value:
+                    type: boolean
+                string_value:
+                    type: string
+                bytes_value:
+                    type: string
+                    format: bytes
+                enum_value:
+                    enum:
+                        - EnumA
+                        - EnumB
+                        - EnumC
+                    type: string
+                    format: enum
+                message_value:
+                    $ref: '#/components/schemas/ExampleRequest_Message'
+                repeated_value:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ExampleRequest_Message'
+                wrapperspb_bool_value:
+                    type: boolean
+                wrapperspb_bytes_value:
+                    type: string
+                    format: bytes
+                wrapperspb_double_value:
+                    type: number
+                    format: double
+                wrapperspb_float_value:
+                    type: number
+                    format: float
+                wrapperspb_int32_value:
+                    type: integer
+                    format: int32
+                wrapperspb_int64_value:
+                    type: string
+                wrapperspb_string_value:
+                    type: string
+                wrapperspb_uint32_value:
+                    type: integer
+                    format: uint32
+                wrapperspb_uint64_value:
+                    type: string
+                timestamp_value:
+                    type: string
+                    format: date-time
+                oneof_option_a:
+                    $ref: '#/components/schemas/ExampleRequest_Message'
+                oneof_option_b:
+                    type: string
+                oneof_option_c:
+                    type: string
+        ExampleRequest_Message:
+            type: object
+            properties:
+                prop:
+                    type: string
+        ExampleResponse:
+            type: object
+            properties:
+                double_value:
+                    type: number
+                    format: double
+                float_value:
+                    type: number
+                    format: float
+                int32_value:
+                    type: integer
+                    format: int32
+                int64_value:
+                    type: string
+                uint32_value:
+                    type: integer
+                    format: uint32
+                uint64_value:
+                    type: string
+                bool_value:
+                    type: boolean
+                string_value:
+                    type: string
+                bytes_value:
+                    type: string
+                    format: bytes
+                enum_value:
+                    enum:
+                        - EnumA
+                        - EnumB
+                        - EnumC
+                    type: string
+                    format: enum
+                message_value:
+                    $ref: '#/components/schemas/ExampleResponse_Message'
+                repeated_value:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/ExampleResponse_Message'
+                wrapperspb_bool_value:
+                    type: boolean
+                wrapperspb_bytes_value:
+                    type: string
+                    format: bytes
+                wrapperspb_double_value:
+                    type: number
+                    format: double
+                wrapperspb_float_value:
+                    type: number
+                    format: float
+                wrapperspb_int32_value:
+                    type: integer
+                    format: int32
+                wrapperspb_int64_value:
+                    type: string
+                wrapperspb_string_value:
+                    type: string
+                wrapperspb_uint32_value:
+                    type: integer
+                    format: uint32
+                wrapperspb_uint64_value:
+                    type: string
+                timestamp_value:
+                    type: string
+                    format: date-time
+                oneof_option_a:
+                    $ref: '#/components/schemas/ExampleResponse_Message'
+                oneof_option_b:
+                    type: string
+                oneof_option_c:
+                    type: string
+        ExampleResponse_Message:
+            type: object
+            properties:
+                prop:
+                    type: string
+        GoogleProtobufAny:
+            type: object
+            properties:
+                '@type':
+                    type: string
+                    description: The type of the serialized message.
+            additionalProperties: true
+            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        HelloRequest:
+            type: object
+            properties:
+                title:
+                    type: string
+                name:
+                    type: string
+                method:
+                    type: string
+        HelloResponse:
+            type: object
+            properties:
+                message:
+                    type: string
+                method:
+                    type: string
+        Status:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+                    format: int32
+                message:
+                    type: string
+                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GoogleProtobufAny'
+                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+tags:
+    - name: GreetingService

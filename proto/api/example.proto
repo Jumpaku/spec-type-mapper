@@ -1,0 +1,133 @@
+syntax = "proto3";
+
+package api;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "example/server/gen/api";
+
+service GreetingService {
+  rpc Example(ExampleRequest) returns (ExampleResponse) {
+    option (google.api.http) = {
+        post: "/example",
+        body: "*"
+    };
+  }
+  rpc Error(google.protobuf.Empty) returns (google.protobuf.Empty) {
+    option (google.api.http) = {get: "/error"};
+  }
+  rpc GetHello(HelloRequest) returns (HelloResponse) {
+    option (google.api.http) = {get: "/hello/{name}"};
+  }
+  rpc PostHello(HelloRequest) returns (HelloResponse) {
+    option (google.api.http) = {
+      post: "/hello/{name}",
+      body: "*"
+    };
+  }
+  rpc DeleteHello(HelloRequest) returns (HelloResponse) {
+    option (google.api.http) = {
+      delete: "/hello/{name}",
+      body: "*"
+    };
+  }
+  rpc PutHello(HelloRequest) returns (HelloResponse) {
+    option (google.api.http) = {
+      put: "/hello/{name}",
+      body: "*"
+    };
+  }
+  rpc PatchHello(HelloRequest) returns (HelloResponse) {
+    option (google.api.http) = {
+      patch: "/hello/{name}",
+      body: "*"
+    };
+  }
+}
+message HelloRequest {
+  string title = 1;
+  string name = 2;
+  string method = 3;
+}
+message HelloResponse {
+  string message = 1;
+  string method = 2;
+}
+message ExampleRequest {
+    double double_value = 1;
+    float float_value = 2;
+    int32 int32_value = 3;
+    int64 int64_value = 4;
+    uint32 uint32_value = 5;
+    uint64 uint64_value = 6;
+    bool bool_value = 7;
+    string string_value = 8;
+    bytes bytes_value = 9;
+    enum Enum {
+        EnumA = 0;
+        EnumB = 1;
+        EnumC = 2;
+    }
+    Enum enum_value = 13;
+    message Message {
+        string prop = 1;
+    }
+    Message message_value = 14;
+    repeated Message repeated_value = 15;
+    google.protobuf.BoolValue wrapperspb_bool_value = 30;
+    google.protobuf.BytesValue wrapperspb_bytes_value = 31;
+    google.protobuf.DoubleValue wrapperspb_double_value = 32;
+    google.protobuf.FloatValue wrapperspb_float_value = 33;
+    google.protobuf.Int32Value wrapperspb_int32_value = 34;
+    google.protobuf.Int64Value wrapperspb_int64_value = 35;
+    google.protobuf.StringValue wrapperspb_string_value = 36;
+    google.protobuf.UInt32Value wrapperspb_uint32_value = 37;
+    google.protobuf.UInt64Value wrapperspb_uint64_value = 38;
+    google.protobuf.Timestamp timestamp_value = 39;
+    oneof oneof_value {
+        Message oneof_option_a = 40;
+        string oneof_option_b = 41;
+        int64 oneof_option_c = 42;
+    } 
+}
+
+message ExampleResponse {
+    double double_value = 1;
+    float float_value = 2;
+    int32 int32_value = 3;
+    int64 int64_value = 4;
+    uint32 uint32_value = 5;
+    uint64 uint64_value = 6;
+    bool bool_value = 7;
+    string string_value = 8;
+    bytes bytes_value = 9;
+    enum Enum {
+        EnumA = 0;
+        EnumB = 1;
+        EnumC = 2;
+    }
+    Enum enum_value = 13;
+    message Message {
+        string prop = 1;
+    }
+    Message message_value = 14;
+    repeated Message repeated_value = 15;
+    google.protobuf.BoolValue wrapperspb_bool_value = 30;
+    google.protobuf.BytesValue wrapperspb_bytes_value = 31;
+    google.protobuf.DoubleValue wrapperspb_double_value = 32;
+    google.protobuf.FloatValue wrapperspb_float_value = 33;
+    google.protobuf.Int32Value wrapperspb_int32_value = 34;
+    google.protobuf.Int64Value wrapperspb_int64_value = 35;
+    google.protobuf.StringValue wrapperspb_string_value = 36;
+    google.protobuf.UInt32Value wrapperspb_uint32_value = 37;
+    google.protobuf.UInt64Value wrapperspb_uint64_value = 38;
+    google.protobuf.Timestamp timestamp_value = 39;
+    oneof oneof_value {
+        Message oneof_option_a = 40;
+        string oneof_option_b = 41;
+        int64 oneof_option_c = 42;
+    } 
+}
